@@ -43,8 +43,11 @@ jobs:
             sleep 5
           done
         shell: bash
+
       - name: Install Karma
-        run: npm install -g karma
+        run: |
+          npm install -g karma
+          npm install webpack webpack-cli --save-dev
 
       - name: Testing on OS (${{ matrix.os }}) with Node.js (version ${{ matrix.node-version }}) attempt ${{ matrix.attempt }}
         run: |
